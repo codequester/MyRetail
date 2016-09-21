@@ -41,7 +41,8 @@ class ProductExceptionHandler {
 	@ExceptionHandler(HttpClientErrorException.class)
 	@ResponseBody
 	ResponseEntity<ErrorResponse> handleServiceResponseException(HttpClientErrorException httpClientException) {
-		logger.error("Error while processing the response from external api -" + httpClientException.getMessage());
+		httpClientException.printStackTrace();
+		logger.error("Error while processing the response from external api -" + httpClientException.getResponseBodyAsString());
 		if(httpClientException.getRawStatusCode() ==  HttpStatus.NOT_FOUND.value())
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("Service Error - Product not found"));
 		else

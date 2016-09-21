@@ -5,12 +5,12 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
-import java.util.HashMap;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
@@ -36,10 +36,12 @@ public class ProductServiceTest {
 		productService = new ProductService(mockRestTemplate,mockProductRepository,TestUtils.getDummyExternalApiUrl());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void getProductById_Valid_Product_Id() {
 		String dummyProductId = "1234";
-		when(mockRestTemplate.getForObject(TestUtils.getDummyExternalApiUrl(), HashMap.class, dummyProductId)).thenReturn(TestUtils.buildDummyExternalApiResponse());		
+		when(mockRestTemplate.exchange(any(String.class), any(HttpMethod.class), any(HttpEntity.class), any(Class.class),  any(Object.class))).thenReturn(TestUtils.buildDummyExternalApiResponse());		
+		when(mockRestTemplate.postForObject(any(String.class), any(Object.class), any(Class.class))).thenReturn(TestUtils.buildDummyToken());
 		when(mockProductRepository.findOne(dummyProductId)).thenReturn(TestUtils.buildDummyProduct());
 		Product product = productService.getProductById(dummyProductId);
 		assertNotNull(product);

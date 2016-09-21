@@ -1,8 +1,14 @@
 package com.myretail.api.products;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.bson.Document;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 /**
  *  @author Shankar Govindarajan
  */
@@ -16,16 +22,29 @@ class TestUtils {
 		return dummyProduct;
 	}
 
-	static HashMap<String,String> buildDummyExternalApiResponse()
+	static ResponseEntity<String> buildDummyExternalApiResponse()
 	{
-		HashMap<String,String> dummyResponse = new HashMap<String,String>();
-		dummyResponse.put("id", "1234");
-		dummyResponse.put("description", "Test Product");
+		ResponseEntity<String> dummyResponse = new ResponseEntity<String>("{\"id\":\"1234\",\"description\":\"Test Product\"}",HttpStatus.OK);
 		return dummyResponse;
 	}
 	
 	static String getDummyExternalApiUrl() {
 		return "http://test.com/products/{id}";
+	}
+	
+	static Map<Object, Object> buildDummyToken() {
+		Map<Object, Object> tokenMap = new HashMap<>();
+		tokenMap.put("access_token", "ASDFEerf1234e");
+		return tokenMap;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	static HttpEntity buildDummyRequest() {
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(MediaType.APPLICATION_JSON);
+	    headers.add("Authorization", String.format("Bearer %s", "ASDFEerf1234e"));
+		HttpEntity httpRequest = new HttpEntity(headers);
+	    return httpRequest;
 	}
 	
 	static Document buildTestDocument(String id, String price, String currencyCode)

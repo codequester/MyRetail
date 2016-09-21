@@ -14,4 +14,4 @@ spring:
       uri: mongodb://myretail_user:password123@127.0.0.1:27017/myretail
 
         
-product.service.url: http://localhost:9008/external-api/products/{id}       
+product.service.url: http://localhost:9008       
