@@ -22,5 +22,17 @@ This repo contains 2 mavenized spring boot projects that can be imported into an
   - The jar file - 'external_products-0.0.1' in https://github.com/codequester/MyRetail/tree/master/external_products/target is a runnable jar and can be executed using the command -  **java -jar target/external_products-0.0.1.jar**
   - For the above to run please ensure that there are not process running on port 28017 as the embedded mongodb is configured to run on this port. This can be edited in the yml file
   - **Please Note** while starting the application either by running the jar or directly from the IDE, due to some issue in the Embedded mongo DB start / shut process, the app errors out. IF this happens we just need to restart it.
-2. 
+  - The app is configure to listen on port - 9008 and under the context root external-api/
+  - The endpoint are protected by oauth and hence to obtain the token we need to visit - http://localhost:9008/external-api/oauth/token
+  
+2.Products (Main Application) 
+ - The requires mondo db running on the default port and if not the port on which it runns can be edited in the yml file.
+ - Please use the included mongo commands to create the initial data to test the working of the endpoint - https://github.com/codequester/MyRetail/blob/master/products/mongo_commands.txt
+ - Once mongo db is up and running , this project can be run as a standlone application by itself.
+ - The app is configure to liste on port 8008 (http) or 9180(https). These can again be configured using the include yml file.
+ - This run under the context too api/
+ - The URL of getting the product details along with its pricing are
+      - GET - https://localhost:8108/api/products/100001 -> where 10001 is the product id,
+  - The URL for updating the price is
+      - POST - https://localhost:8108/api/products/100001 -> where 10001 is the prodcut id. This also requires us to send the updating pricing information as a request body i.e {	"value": 51.99,	"code":"USD"}
 
