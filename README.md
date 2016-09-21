@@ -17,3 +17,10 @@ This repo contains 2 mavenized spring boot projects that can be imported into an
   
 ## Steps for Execution
 
+1. external_products (External Application)
+  - This is a self contained module and hence there are no dependency on any other software.
+  - The jar file - 'external_products-0.0.1' in https://github.com/codequester/MyRetail/tree/master/external_products/target is a runnable jar and can be executed using the command below
+      *java -jar target/external_products-0.0.1.jar*
+  - 
+2. 
+
