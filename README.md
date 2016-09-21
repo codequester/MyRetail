@@ -23,7 +23,8 @@ This repo contains 2 mavenized spring boot projects that can be imported into an
   - For the above to run please ensure that there are not process running on port 28017 as the embedded mongodb is configured to run on this port. This can be edited in the yml file
   - **Please Note** while starting the application either by running the jar or directly from the IDE, due to some issue in the Embedded mongo DB start / shut process, the app errors out. IF this happens we just need to restart it.
   - The app is configure to listen on port - 9008 and under the context root external-api/
-  - The endpoint are protected by oauth and hence to obtain the token we need to visit - http://localhost:9008/external-api/oauth/token
+  - The endpoint are protected by oauth and hence to obtain the token we need to visit - http://localhost:9008/external-api/oauth/token (Refer to the screenshot -https://github.com/codequester/MyRetail/blob/master/Screenshot_external_api_token.JPG)
+  - Once the token is obtain it can be passed in the header as a bearer token and invoke the REST point to get the prodcut details (refer to the screen shot - https://github.com/codequester/MyRetail/blob/master/Screenshot_external_api_prod_desc.JPG)
   
 2.Products (Main Application) 
  - The requires mondo db running on the default port and if not the port on which it runns can be edited in the yml file.
