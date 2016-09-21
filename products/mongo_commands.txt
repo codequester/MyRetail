@@ -1,0 +1,60 @@
+use myretail;
+
+db.createUser(
+    {
+      user: "myretail_user",
+      pwd: "password123",
+      roles: [
+         { role: "readWrite", db: "myretail" }
+      ]
+    }
+);
+
+db.product.insert(
+{
+	"_id" : "100001",
+	"currentPrice" : {
+		"value":13.49,
+		"code":"USD"
+	}
+});
+
+var bulk = db.product.initializeOrderedBulkOp();
+bulk.insert({
+	"_id" : "100002",
+	"currentPrice" : {
+		"value":26.99,
+		"code":"USD"
+	}
+});
+bulk.insert({
+	"_id" : "100003",
+	"currentPrice" : {
+		"value":32.35,
+		"code":"USD"
+	}
+});
+bulk.insert({
+	"_id" : "100004",
+	"currentPrice" : {
+		"value":15.48,
+		"code":"USD"
+	}
+});
+bulk.insert({
+	"_id" : "100005",
+	"currentPrice" : {
+		"value":15.48,
+		"code":"USD"
+	}
+});
+bulk.insert({
+	"_id" : "100006",
+	"currentPrice" : {
+		"value":85.48,
+		"code":"USD"
+	}
+});
+bulk.execute();
+
+

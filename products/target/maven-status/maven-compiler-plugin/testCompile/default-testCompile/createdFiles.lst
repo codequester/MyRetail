@@ -1,0 +1,6 @@
+com\myretail\api\products\ProductRepositoryTest.class
+com\myretail\api\products\ProductControllerTest.class
+com\myretail\api\products\ProductServiceTest.class
+com\myretail\api\products\RepositoryContext.class
+com\myretail\api\products\TestApplication.class
+com\myretail\api\products\TestUtils.class

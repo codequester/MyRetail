@@ -1,0 +1,8 @@
+server:
+  contextPath: /external-api
+  port: 9008
+ 
+spring:
+  data:
+    mongodb:
+      port: 28017  

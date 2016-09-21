@@ -1,0 +1,10 @@
+com\myretail\api\products\ProductRepository.class
+com\myretail\api\products\NoSuchProductException.class
+com\myretail\api\products\CurrencyCode.class
+com\myretail\api\products\ProductExceptionHandler.class
+com\myretail\api\products\Application.class
+com\myretail\api\products\ErrorResponse.class
+com\myretail\api\products\Product.class
+com\myretail\api\products\ProductService.class
+com\myretail\api\products\Money.class
+com\myretail\api\products\ProductController.class

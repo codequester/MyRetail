@@ -1,0 +1,17 @@
+server:
+  contextPath: /api
+  port: 8108
+  ssl:
+    enabled: true  
+    key-store: classpath:keystore.pfx
+    key-store-type: PKCS12
+    key-store-password: password123
+    key-password: password123  
+ 
+spring:
+  data:
+    mongodb:
+      uri: mongodb://myretail_user:password123@127.0.0.1:27017/myretail
+
+        
+product.service.url: http://localhost:9008/external-api/products/{id}       
