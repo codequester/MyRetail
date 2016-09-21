@@ -14,7 +14,6 @@ This repo contains 2 mavenized spring boot projects that can be imported into an
   - Uses MongoDB as its data store
   - The commands (SQLs) for mondo db can be found in mongo_commands.txt 
   - startMongoDB.bat can be edited and used to start the mongodb process
-  - 
   
 ## Steps for Execution
 
